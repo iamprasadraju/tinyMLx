@@ -8,11 +8,11 @@ def timeit(func):
 		I = int(os.environ.get("I", 10))
 		if I == -1:
 			while 1:
-				t = timeit(func, *args)
+				t = _timeit(func, *args)
 				print(func.__name__, t)
 		else:		
 			for _ in range(I):
-				t = timeit(func, *args)
+				t = _timeit(func, *args)
 				print(t)
 
 	return enc_func
