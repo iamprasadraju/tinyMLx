@@ -46,4 +46,6 @@ class LinearModel:
         self.bias -= self.lr * db
 
     def predict(self, X_test):
+        if not isinstance(X_test, Tensor):
+            X_test = Tensor(X_test, uops=self.uops)
         return X_test @ self.weights + self.bias
